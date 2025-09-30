@@ -5,6 +5,18 @@ import { MENU_ITEMS, CATEGORIES } from './menu-data.js';
 const $  = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
+// Resolve asset paths for local and GitHub Pages deployments
+const GH_PREFIX = location.hostname.endsWith('github.io')
+  ? `/${location.pathname.split('/')[1]}/`   // e.g., "/wrap-house/"
+  : '/';
+
+const resolveAsset = (p) => {
+  // p like "assets/images/burger.jpeg" or "/assets/images/burger.jpeg"
+  const clean = String(p).replace(/^\/+/, ''); // strip leading slashes
+  return `${GH_PREFIX}${clean}`;
+};
+
+
 // Sticky header shadow
 const header = $('.site-header');
 const onScroll = () => header && header.classList.toggle('scrolled', window.scrollY > 10);
@@ -15,6 +27,7 @@ const menuBtn  = $('.menu-toggle');
 const navLinks = $('.nav-links');
 let lastFocused = null;
 let trapHandler = null;
+
 
 function openMenu() {
   if (!navLinks || !menuBtn) return;
@@ -164,7 +177,7 @@ if (grid) {
     el.className = 'card';
     el.innerHTML = `
       <div class="card-media">
-        <img loading="lazy" src="${it.img}" alt="${it.name}">
+        <img loading="lazy" src="${resolveAsset(it.img)}" alt="${it.name}">
       </div>
       <div class="card-body">
         <h3 class="card-title">${it.name}</h3>

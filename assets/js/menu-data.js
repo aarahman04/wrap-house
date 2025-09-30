@@ -1,4 +1,16 @@
 // Simple data store for menu items. Edit freely.
+// Resolve asset paths for local and GitHub Pages deployments
+const GH_PREFIX = location.hostname.endsWith('github.io')
+  ? `/${location.pathname.split('/')[1]}/`   // e.g., "/wrap-house/"
+  : '/';
+
+const resolveAsset = (p) => {
+  // p like "assets/images/burger.jpeg" or "/assets/images/burger.jpeg"
+  const clean = String(p).replace(/^\/+/, ''); // strip leading slashes
+  return `${GH_PREFIX}${clean}`;
+};
+
+
 export const MENU_ITEMS = [
   {
     id: 'p1',
