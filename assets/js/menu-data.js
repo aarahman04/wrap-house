@@ -1,3 +1,4 @@
+
 // Simple data store for menu items. Edit freely.
 export const MENU_ITEMS = [
   { id: 'p1', name: 'Chicken Broast Platter', category: 'Platters', price: 349, 
