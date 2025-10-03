@@ -137,12 +137,17 @@ if (grid) {
   let currentCat = 'All';
   let query = '';
 
-  // --- featured: up to 2 each from Wraps, Burgers, Wings (total 6) ---
-  const FEATURED     = pickFeatured(MENU_ITEMS, PAGE_SIZE, ['Wraps', 'Burgers', 'Wings']);
+  // ---- Featured (first page): up to 2 from each priority cat ----
+  const PRIORITY_CATS = ['Wraps', 'Burgers', 'Wings'];
+  const FEATURED = pickFeatured(MENU_ITEMS, PAGE_SIZE, PRIORITY_CATS);
   const FEATURED_IDS = new Set(FEATURED.map(it => it.id));
-  const ORDERED_ALL  = [...FEATURED, ...MENU_ITEMS.filter(x => !FEATURED_IDS.has(x.id))];
 
-  // Render chips
+  // ---- Interleave the remaining items by category (round-robin) ----
+  const REST = MENU_ITEMS.filter(x => !FEATURED_IDS.has(x.id));
+  const ORDERED_REST = interleaveByCategory(REST, PRIORITY_CATS);
+  const ORDERED_ALL = [...FEATURED, ...ORDERED_REST];
+
+  // chips
   CATEGORIES.forEach(cat => {
     const b = document.createElement('button');
     b.className = 'chip';
@@ -151,7 +156,7 @@ if (grid) {
     b.setAttribute('aria-pressed', cat === 'All' ? 'true' : 'false');
     b.addEventListener('click', () => {
       currentCat = cat;
-      visibleCount = PAGE_SIZE;                 // reset page
+      visibleCount = PAGE_SIZE; // reset page
       $$('#category-chips .chip').forEach(c => c.setAttribute('aria-pressed', 'false'));
       b.setAttribute('aria-pressed', 'true');
       render();
@@ -159,15 +164,16 @@ if (grid) {
     chipsWrap?.appendChild(b);
   });
 
+  // search
   searchInput?.addEventListener('input', () => {
     query = searchInput.value.trim().toLowerCase();
-    visibleCount = PAGE_SIZE;                   // reset page
+    visibleCount = PAGE_SIZE; // reset page
     render();
   });
 
-  // “More” button under the grid
-  const moreBtn = document.createElement('button');
-  moreBtn.type = 'button';
+  // centered "More" button
+  const moreBtn  = document.createElement('button');
+  moreBtn.type   = 'button';
   moreBtn.className = 'btn btn-outline btn-more';
   moreBtn.textContent = 'More';
   moreBtn.addEventListener('click', () => {
@@ -175,22 +181,27 @@ if (grid) {
     render();
   });
 
+  const moreWrap = document.createElement('div');
+  moreWrap.className = 'more-wrap';
+  moreWrap.appendChild(moreBtn);
+  grid.parentElement.appendChild(moreWrap);
+
+  // ---------- helpers ----------
   function pickFeatured(items, targetCount, preferredCats) {
     const taken = new Set();
     const out = [];
-
-    // take up to 2 from each preferred category
     preferredCats.forEach(cat => {
       const picks = items.filter(x => x.category === cat).slice(0, 2);
-      picks.forEach(p => { if (!taken.has(p.id) && out.length < targetCount) { taken.add(p.id); out.push(p); } });
+      picks.forEach(p => {
+        if (!taken.has(p.id) && out.length < targetCount) {
+          taken.add(p.id); out.push(p);
+        }
+      });
     });
-
-    // top up to targetCount
     if (out.length < targetCount) {
       for (const it of items) {
         if (!taken.has(it.id)) {
-          out.push(it);
-          taken.add(it.id);
+          out.push(it); taken.add(it.id);
           if (out.length === targetCount) break;
         }
       }
@@ -198,8 +209,34 @@ if (grid) {
     return out;
   }
 
+  // Round-robin interleave: cycles categories so we don't get long runs of one type.
+  function interleaveByCategory(items, priorityFirst = []) {
+    const groups = new Map();
+    items.forEach(it => {
+      const arr = groups.get(it.category) || [];
+      arr.push(it);
+      groups.set(it.category, arr);
+    });
+
+    const restCats = Array.from(groups.keys()).filter(c => !priorityFirst.includes(c));
+    const cycleCats = [...priorityFirst.filter(c => groups.has(c)), ...restCats];
+
+    const out = [];
+    let remaining = items.length;
+    while (remaining > 0) {
+      for (const cat of cycleCats) {
+        const arr = groups.get(cat);
+        if (arr && arr.length) {
+          out.push(arr.shift());
+          remaining--;
+        }
+      }
+    }
+    return out;
+  }
+
   function currentData() {
-    // When “All” and no query → show ordered list (featured first), else use raw list
+    // When “All” and no query → use interleaved ORDERED_ALL; else normal filtered list
     const base = (currentCat === 'All' && !query) ? ORDERED_ALL : MENU_ITEMS;
     return base.filter(it => {
       const catOk = currentCat === 'All' || it.category === currentCat;
@@ -215,19 +252,18 @@ if (grid) {
     grid.innerHTML = '';
     data.slice(0, visibleCount).forEach(it => grid.appendChild(card(it)));
 
-    // toggle / place the More button just below the grid
+    // toggle More (centered via .more-wrap)
     if (visibleCount < data.length) {
-      if (!moreBtn.isConnected) grid.parentElement.appendChild(moreBtn);
-      moreBtn.style.display = '';
+      moreWrap.style.display = '';
     } else {
-      moreBtn.style.display = 'none';
+      moreWrap.style.display = 'none';
     }
 
     if (data.length === 0) {
       const empty = document.createElement('p');
       empty.textContent = 'No items match your search. Try a different filter.';
       grid.appendChild(empty);
-      moreBtn.style.display = 'none';
+      moreWrap.style.display = 'none';
     }
   }
 
@@ -258,6 +294,8 @@ if (grid) {
 
   render();
 }
+
+
 
 
 

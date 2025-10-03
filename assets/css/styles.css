@@ -227,70 +227,83 @@ input, textarea{
   .contact-two-col { grid-template-columns: 1.2fr 1fr; }
 }
 
-.btn-zomato {
-  background: #ff0039;
-  border-color: #ff0039;
-  color: #fff;
-}
-.btn-zomato:hover,
-.btn-zomato:focus {
-  background: #d10030;
-  border-color: #d10030;
-  color: #fff;
+/* ---- Brand colors (easy to tweak later) ---- */
+:root{
+  --brand-zomato: #ff0039;
+  --brand-zomato-hover: #d10030;
+  --brand-swiggy: #fe5200;
+  --brand-swiggy-hover: #d74300;
 }
 
-.btn-swiggy {
-  background: #fe5200;
-  border-color: #fe5200;
-  color: #fff;
-}
-.btn-swiggy:hover,
-.btn-swiggy:focus {
-  background: #d74300;
-  border-color: #d74300;
-  color: #fff;
-}
-
-.order-buttons .btn { margin-top: 8px; }
-.order-buttons .btn:first-child { margin-top: 0; }
-/* compact CTAs for cards (smaller size) */
-.btn-compact {
+/* ---- Order CTAs (compact) ---- */
+.btn-compact{
   font-size: 0.9rem;
   padding: 8px 12px;
   border-radius: 10px;
 }
 
 /* Zomato (top) */
-.btn-zomato {
-  background: #ff0039;
-  border-color: #ff0039;
-  color: #fff;
+.btn-zomato{
+  background: var(--brand-zomato);
+  border-color: var(--brand-zomato);
+  color:#fff;
 }
 .btn-zomato:hover,
-.btn-zomato:focus {
-  background: #d10030;
-  border-color: #d10030;
-  color: #fff;
+.btn-zomato:focus{
+  background: var(--brand-zomato-hover);
+  border-color: var(--brand-zomato-hover);
+  color:#fff;
 }
 
 /* Swiggy (below) */
-.btn-swiggy {
-  background: #fe5200;
-  border-color: #fe5200;
-  color: #fff;
+.btn-swiggy{
+  background: var(--brand-swiggy);
+  border-color: var(--brand-swiggy);
+  color:#fff;
 }
 .btn-swiggy:hover,
-.btn-swiggy:focus {
-  background: #d74300;
-  border-color: #d74300;
-  color: #fff;
+.btn-swiggy:focus{
+  background: var(--brand-swiggy-hover);
+  border-color: var(--brand-swiggy-hover);
+  color:#fff;
 }
 
-/* spacing */
-.order-buttons .btn { margin-top: 6px; }
-.order-buttons .btn:first-child { margin-top: 0; }
+/* spacing between order buttons */
+.order-buttons .btn{ margin-top: 6px; }
+.order-buttons .btn:first-child{ margin-top: 0; }
 
-/* "More" button */
-.btn-more {
-  margin-top: 16px;
+/* ---- "More" button: centered + long + responsive ---- */
+.more-wrap{
+  display:flex;
+  justify-content:center;
+  margin-top:16px;
+}
+.btn-more{
+  display:inline-block;
+  margin:0 auto;
+  /* long but responsive */
+  width: clamp(260px, 50vw, 560px);
+  padding:14px 18px;
+  border-radius:12px;
+  text-align:center;
+  font-size:1rem;
+}
+
+/* ---- Focus states (keyboard a11y) ---- */
+.btn-zomato:focus-visible,
+.btn-swiggy:focus-visible,
+.btn-more:focus-visible{
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ---- Responsive tweaks ---- */
+@media (max-width: 480px){
+  .btn-compact{ font-size: .875rem; padding: 7px 10px; }
+  .btn-more{ width: min(92%, 520px); }
+}
+
+@media (min-width: 768px){
+  .btn-compact{ font-size: .95rem; }
+  .btn-more{ width: clamp(320px, 40vw, 600px); }
 }
