@@ -253,3 +253,44 @@ input, textarea{
 
 .order-buttons .btn { margin-top: 8px; }
 .order-buttons .btn:first-child { margin-top: 0; }
+/* compact CTAs for cards (smaller size) */
+.btn-compact {
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+/* Zomato (top) */
+.btn-zomato {
+  background: #ff0039;
+  border-color: #ff0039;
+  color: #fff;
+}
+.btn-zomato:hover,
+.btn-zomato:focus {
+  background: #d10030;
+  border-color: #d10030;
+  color: #fff;
+}
+
+/* Swiggy (below) */
+.btn-swiggy {
+  background: #fe5200;
+  border-color: #fe5200;
+  color: #fff;
+}
+.btn-swiggy:hover,
+.btn-swiggy:focus {
+  background: #d74300;
+  border-color: #d74300;
+  color: #fff;
+}
+
+/* spacing */
+.order-buttons .btn { margin-top: 6px; }
+.order-buttons .btn:first-child { margin-top: 0; }
+
+/* "More" button */
+.btn-more {
+  margin-top: 16px;
+}

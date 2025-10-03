@@ -130,12 +130,17 @@ const grid = $('#menu-grid');
 if (grid) {
   const chipsWrap   = $('#category-chips');
   const searchInput = $('#menu-search');
+
+  // pagination
+  const PAGE_SIZE = 6;
+  let visibleCount = PAGE_SIZE;
   let currentCat = 'All';
   let query = '';
-  let hasInteracted = false;
 
-  // --- featured: pick up to 2 from Wraps, Burgers, Wings (total 6) ---
-  const FEATURED = pickFeatured(MENU_ITEMS, 6, ['Wraps', 'Burgers', 'Wings']);
+  // --- featured: up to 2 each from Wraps, Burgers, Wings (total 6) ---
+  const FEATURED     = pickFeatured(MENU_ITEMS, PAGE_SIZE, ['Wraps', 'Burgers', 'Wings']);
+  const FEATURED_IDS = new Set(FEATURED.map(it => it.id));
+  const ORDERED_ALL  = [...FEATURED, ...MENU_ITEMS.filter(x => !FEATURED_IDS.has(x.id))];
 
   // Render chips
   CATEGORIES.forEach(cat => {
@@ -146,7 +151,7 @@ if (grid) {
     b.setAttribute('aria-pressed', cat === 'All' ? 'true' : 'false');
     b.addEventListener('click', () => {
       currentCat = cat;
-      hasInteracted = true;
+      visibleCount = PAGE_SIZE;                 // reset page
       $$('#category-chips .chip').forEach(c => c.setAttribute('aria-pressed', 'false'));
       b.setAttribute('aria-pressed', 'true');
       render();
@@ -156,7 +161,17 @@ if (grid) {
 
   searchInput?.addEventListener('input', () => {
     query = searchInput.value.trim().toLowerCase();
-    hasInteracted = true;
+    visibleCount = PAGE_SIZE;                   // reset page
+    render();
+  });
+
+  // “More” button under the grid
+  const moreBtn = document.createElement('button');
+  moreBtn.type = 'button';
+  moreBtn.className = 'btn btn-outline btn-more';
+  moreBtn.textContent = 'More';
+  moreBtn.addEventListener('click', () => {
+    visibleCount += PAGE_SIZE;
     render();
   });
 
@@ -170,7 +185,7 @@ if (grid) {
       picks.forEach(p => { if (!taken.has(p.id) && out.length < targetCount) { taken.add(p.id); out.push(p); } });
     });
 
-    // top up if less than targetCount
+    // top up to targetCount
     if (out.length < targetCount) {
       for (const it of items) {
         if (!taken.has(it.id)) {
@@ -183,23 +198,36 @@ if (grid) {
     return out;
   }
 
-  function render() {
-    const base = (!hasInteracted && currentCat === 'All' && !query) ? FEATURED : MENU_ITEMS;
-
-    const filtered = base.filter(it => {
+  function currentData() {
+    // When “All” and no query → show ordered list (featured first), else use raw list
+    const base = (currentCat === 'All' && !query) ? ORDERED_ALL : MENU_ITEMS;
+    return base.filter(it => {
       const catOk = currentCat === 'All' || it.category === currentCat;
-      const qOk = query
+      const qOk   = query
         ? (it.name + ' ' + (it.keywords || '') + ' ' + (it.desc || '')).toLowerCase().includes(query)
         : true;
       return catOk && qOk;
     });
+  }
 
+  function render() {
+    const data = currentData();
     grid.innerHTML = '';
-    filtered.forEach(it => grid.appendChild(card(it)));
-    if (filtered.length === 0) {
+    data.slice(0, visibleCount).forEach(it => grid.appendChild(card(it)));
+
+    // toggle / place the More button just below the grid
+    if (visibleCount < data.length) {
+      if (!moreBtn.isConnected) grid.parentElement.appendChild(moreBtn);
+      moreBtn.style.display = '';
+    } else {
+      moreBtn.style.display = 'none';
+    }
+
+    if (data.length === 0) {
       const empty = document.createElement('p');
       empty.textContent = 'No items match your search. Try a different filter.';
       grid.appendChild(empty);
+      moreBtn.style.display = 'none';
     }
   }
 
@@ -215,8 +243,12 @@ if (grid) {
         <p class="card-desc">${it.desc || ''}</p>
         <div class="card-bottom">
           <div class="order-buttons">
-            <a class="btn btn-zomato btn-block" href="https://zomato.onelink.me/xqzv/q8m1c8sh" target="_blank" rel="nofollow noopener noreferrer">Order on Zomato</a>
-            <a class="btn btn-swiggy btn-block" href="https://www.swiggy.com/city/hyderabad/the-wrap-house-malakpet-circle-no-6-kothapet-and-dilsukhnagar-rest627630" target="_blank" rel="nofollow noopener noreferrer">Order on Swiggy</a>
+            <a class="btn btn-zomato btn-block btn-compact"
+               href="https://zomato.onelink.me/xqzv/q8m1c8sh"
+               target="_blank" rel="nofollow noopener noreferrer">Order on Zomato</a>
+            <a class="btn btn-swiggy btn-block btn-compact"
+               href="https://www.swiggy.com/city/hyderabad/the-wrap-house-malakpet-circle-no-6-kothapet-and-dilsukhnagar-rest627630"
+               target="_blank" rel="nofollow noopener noreferrer">Order on Swiggy</a>
           </div>
         </div>
       </div>
@@ -226,6 +258,7 @@ if (grid) {
 
   render();
 }
+
 
 
 // Forms — basic client-side validation demo
