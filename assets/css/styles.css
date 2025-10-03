@@ -307,3 +307,8 @@ input, textarea{
   .btn-compact{ font-size: .95rem; }
   .btn-more{ width: clamp(320px, 40vw, 600px); }
 }
+/* Make sure buttons are actually clickable */
+.orders .btn { pointer-events: auto; position: relative; z-index: 1; }
+
+/* If you have any full-width overlays near this section, ensure they don't cover it */
+.section .overlay-blocker { pointer-events: none; }

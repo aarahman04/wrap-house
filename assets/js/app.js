@@ -341,3 +341,15 @@ $$('.gallery img[loading="lazy"]').forEach(img => {
   }, { rootMargin: '200px' });
   obs.observe(img);
 });
+
+// Force external-order links to open even if another handler prevents default
+$$('a[data-out="external"]').forEach(a => {
+  a.addEventListener('click', e => {
+    // if some other handler called preventDefault, we still open explicitly
+    if (e.defaultPrevented) {
+      window.open(a.href, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    // else normal behavior with target=_blank works
+  }, true); // use capture so we run before bubbling preventers
+});
