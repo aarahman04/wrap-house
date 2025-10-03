@@ -26,7 +26,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Blaze Burger — Juicy patty with fresh toppings.',
-    img: 'assets/images/blaze_burger_.jpg',
+    img: 'assets/images/blaze_burger.jpg',
     keywords: 'Blaze Burger'
   },
   {
