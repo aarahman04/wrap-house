@@ -18,7 +18,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Bbq Chicken Burger — Juicy patty with fresh toppings.',
-    img: 'assets/images/bbq chicken burger.jpg',
+    img: 'assets/images/bbq%20chicken%20burger.jpg',
     keywords: 'Bbq Chicken Burger'
   },
   {
@@ -27,7 +27,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Blaze Burger — Juicy patty with fresh toppings.',
-    img: 'assets/images/blaze burger .jpg',
+    img: 'assets/images/blaze%20burger.jpg',
     keywords: 'Blaze Burger'
   },
   {
@@ -36,7 +36,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Boss Burger — Juicy patty with fresh toppings.',
-    img: 'assets/images/Boss Burger.jpg',
+    img: 'assets/images/Boss%20Burger.jpg',
     keywords: 'Boss Burger'
   },
   {
@@ -45,7 +45,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Buff Tropical Burger — Juicy patty with fresh toppings.',
-    img: 'assets/images/buff tropical burger .jpg',
+    img: 'assets/images/buff%20tropical%20burger.jpg',
     keywords: 'Buff Tropical Burger'
   },
   {
@@ -54,7 +54,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Cheese Overloaded Burger — Juicy patty with fresh toppings.',
-    img: 'assets/images/Cheese Overloaded Burger.jpg',
+    img: 'assets/images/Cheese%20Overloaded%20Burger.jpg',
     keywords: 'Cheese Overloaded Burger'
   },
   {
@@ -63,7 +63,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Chicken Cheese Overloaded Burger — Juicy patty with fresh toppings.',
-    img: 'assets/images/chicken cheese overloaded burger .jpg',
+    img: 'assets/images/chicken%20cheese%20overloaded%20burger.jpg',
     keywords: 'Chicken Cheese Overloaded Burger'
   },
   {
@@ -72,7 +72,7 @@ export const MENU_ITEMS = [
     category: 'Others',
     price: '',
     desc: 'Chicken Double Trouble special from our kitchen.',
-    img: 'assets/images/Chicken Double Trouble.jpg',
+    img: 'assets/images/Chicken%20Double%20Trouble.jpg',
     keywords: 'Chicken Double Trouble'
   },
   {
@@ -81,7 +81,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Classic Beef Burger — Juicy patty with fresh toppings.',
-    img: 'assets/images/Classic Beef Burger.jpg',
+    img: 'assets/images/Classic%20Beef%20Burger.jpg',
     keywords: 'Classic Beef Burger'
   },
   {
@@ -90,7 +90,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Classic Buff Burger — Juicy patty with fresh toppings.',
-    img: 'assets/images/classic buff burger .jpg',
+    img: 'assets/images/classic%20buff%20burger.jpg',
     keywords: 'Classic Buff Burger'
   },
   {
@@ -99,7 +99,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Double Trouble Beef Burger — Juicy patty with fresh toppings.',
-    img: 'assets/images/Double Trouble Beef Burger.jpg',
+    img: 'assets/images/Double%20Trouble%20Beef%20Burger.jpg',
     keywords: 'Double Trouble Beef Burger'
   },
   {
@@ -108,7 +108,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Double Trouble Buff Burger — Juicy patty with fresh toppings.',
-    img: 'assets/images/double trouble buff burger.jpg',
+    img: 'assets/images/double%20trouble%20buff%20burger.jpg',
     keywords: 'Double Trouble Buff Burger'
   },
   {
@@ -117,7 +117,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Double Trouble Chicken Burger — Juicy patty with fresh toppings.',
-    img: 'assets/images/Double trouble chicken burger .jpg',
+    img: 'assets/images/Double%20trouble%20chicken%20burger.jpg',
     keywords: 'Double Trouble Chicken Burger'
   },
   {
@@ -126,7 +126,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Grilled Chicken Burger — Juicy patty with fresh toppings.',
-    img: 'assets/images/Grilled Chicken Burger.jpg',
+    img: 'assets/images/Grilled%20Chicken%20Burger.jpg',
     keywords: 'Grilled Chicken Burger'
   },
   {
@@ -135,7 +135,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Koma Burger — Juicy patty with fresh toppings.',
-    img: 'assets/images/koma burger.jpg',
+    img: 'assets/images/koma%20burger.jpg',
     keywords: 'Koma Burger'
   },
   {
@@ -144,7 +144,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Smoke Bbq Burger — Juicy patty with fresh toppings.',
-    img: 'assets/images/Smoke BBQ Burger.jpg',
+    img: 'assets/images/Smoke%20BBQ%20Burger.jpg',
     keywords: 'Smoke Bbq Burger'
   },
   {
@@ -153,7 +153,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Spice Maxx Beef Burger — Juicy patty with fresh toppings.',
-    img: 'assets/images/Spice Maxx Beef Burger.jpg',
+    img: 'assets/images/Spice%20Maxx%20Beef%20Burger.jpg',
     keywords: 'Spice Maxx Beef Burger'
   },
   {
@@ -162,7 +162,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Sunrise Burger Chicken — Juicy patty with fresh toppings.',
-    img: 'assets/images/Sunrise Burger Chicken.jpg',
+    img: 'assets/images/Sunrise%20Burger%20Chicken.jpg',
     keywords: 'Sunrise Burger Chicken'
   },
   {
@@ -171,7 +171,7 @@ export const MENU_ITEMS = [
     category: 'Burgers',
     price: '',
     desc: 'Zinger Burger — Juicy patty with fresh toppings.',
-    img: 'assets/images/Zinger Burger.jpg',
+    img: 'assets/images/Zinger%20Burger.jpg',
     keywords: 'Zinger Burger'
   },
   {
@@ -180,7 +180,7 @@ export const MENU_ITEMS = [
     category: 'Fries',
     price: '',
     desc: 'Crispy golden fries served hot and fresh.',
-    img: 'assets/images/Beef Cheesy Fries.jpg',
+    img: 'assets/images/Beef%20Cheesy%20Fries.jpg',
     keywords: 'Beef Cheesy Fries'
   },
   {
@@ -189,7 +189,7 @@ export const MENU_ITEMS = [
     category: 'Fries',
     price: '',
     desc: 'Crispy golden fries served hot and fresh.',
-    img: 'assets/images/Cheesy Fries.jpg',
+    img: 'assets/images/Cheesy%20Fries.jpg',
     keywords: 'Cheesy Fries'
   },
   {
@@ -198,7 +198,7 @@ export const MENU_ITEMS = [
     category: 'Fries',
     price: '',
     desc: 'Crispy golden fries served hot and fresh.',
-    img: 'assets/images/Chicken Cheesy Fries.jpg',
+    img: 'assets/images/Chicken%20Cheesy%20Fries.jpg',
     keywords: 'Chicken Cheesy Fries'
   },
   {
@@ -207,7 +207,7 @@ export const MENU_ITEMS = [
     category: 'Others',
     price: '',
     desc: 'French Fried special from our kitchen.',
-    img: 'assets/images/French Fried.jpg',
+    img: 'assets/images/French%20Fried.jpg',
     keywords: 'French Fried'
   },
   {
@@ -216,7 +216,7 @@ export const MENU_ITEMS = [
     category: 'Fries',
     price: '',
     desc: 'Crispy golden fries served hot and fresh.',
-    img: 'assets/images/peri peri fries.jpg',
+    img: 'assets/images/peri%20peri%20fries.jpg',
     keywords: 'Peri Peri Fries'
   },
   {
@@ -225,7 +225,7 @@ export const MENU_ITEMS = [
     category: 'Pasta',
     price: '',
     desc: 'Delicious Alfredo Chicken Pasta pasta with creamy sauce.',
-    img: 'assets/images/Alfredo Chicken Pasta.jpg',
+    img: 'assets/images/Alfredo%20Chicken%20Pasta.jpg',
     keywords: 'Alfredo Chicken Pasta'
   },
   {
@@ -234,7 +234,7 @@ export const MENU_ITEMS = [
     category: 'Pasta',
     price: '',
     desc: 'Delicious Arabiata Chicken Pasta pasta with creamy sauce.',
-    img: 'assets/images/Arabiata Chicken Pasta.jpg',
+    img: 'assets/images/Arabiata%20Chicken%20Pasta.jpg',
     keywords: 'Arabiata Chicken Pasta'
   },
   {
@@ -243,7 +243,7 @@ export const MENU_ITEMS = [
     category: 'Others',
     price: '',
     desc: 'Mac N Cheese Chicken special from our kitchen.',
-    img: 'assets/images/Mac N Cheese Chicken.jpg',
+    img: 'assets/images/Mac%20N%20Cheese%20Chicken.jpg',
     keywords: 'Mac N Cheese Chicken'
   },
   {
@@ -252,7 +252,7 @@ export const MENU_ITEMS = [
     category: 'Pasta',
     price: '',
     desc: 'Delicious Peri Peri Chicken Pasta pasta with creamy sauce.',
-    img: 'assets/images/Peri Peri Chicken Pasta.jpg',
+    img: 'assets/images/Peri%20Peri%20Chicken%20Pasta.jpg',
     keywords: 'Peri Peri Chicken Pasta'
   },
   {
@@ -261,7 +261,7 @@ export const MENU_ITEMS = [
     category: 'Pasta',
     price: '',
     desc: 'Delicious Wrap House Special Pasta Chicken pasta with creamy sauce.',
-    img: 'assets/images/Wrap House Special Pasta Chicken.jpg',
+    img: 'assets/images/Wrap%20House%20Special%20Pasta%20Chicken.jpg',
     keywords: 'Wrap House Special Pasta Chicken'
   },
   {
@@ -270,7 +270,7 @@ export const MENU_ITEMS = [
     category: 'Rice',
     price: '',
     desc: 'Flavorful Bbq Chicken With Herb Rice served with spiced rice.',
-    img: 'assets/images/BBQ Chicken with Herb Rice.jpg',
+    img: 'assets/images/BBQ%20Chicken%20with%20Herb%20Rice.jpg',
     keywords: 'Bbq Chicken With Herb Rice'
   },
   {
@@ -279,7 +279,7 @@ export const MENU_ITEMS = [
     category: 'Rice',
     price: '',
     desc: 'Flavorful Saucy Peri Peri Chicken With Herb Rice served with spiced rice.',
-    img: 'assets/images/Saucy Peri Peri Chicken with Herb Rice.jpg',
+    img: 'assets/images/Saucy%20Peri%20Peri%20Chicken%20with%20Herb%20Rice.jpg',
     keywords: 'Saucy Peri Peri Chicken With Herb Rice'
   },
   {
@@ -288,7 +288,7 @@ export const MENU_ITEMS = [
     category: 'Salads',
     price: '',
     desc: 'Fresh and healthy Bbq Beef Salad with dressing.',
-    img: 'assets/images/BBQ Beef Salad.jpg',
+    img: 'assets/images/BBQ%20Beef%20Salad.jpg',
     keywords: 'Bbq Beef Salad'
   },
   {
@@ -297,7 +297,7 @@ export const MENU_ITEMS = [
     category: 'Salads',
     price: '',
     desc: 'Fresh and healthy Grill Chicken Salad with dressing.',
-    img: 'assets/images/grill chicken salad.jpg',
+    img: 'assets/images/grill%20chicken%20salad.jpg',
     keywords: 'Grill Chicken Salad'
   },
   {
@@ -306,7 +306,7 @@ export const MENU_ITEMS = [
     category: 'Salads',
     price: '',
     desc: 'Fresh and healthy Veg Salad with dressing.',
-    img: 'assets/images/Veg Salad.jpg',
+    img: 'assets/images/Veg%20Salad.jpg',
     keywords: 'Veg Salad'
   },
   {
@@ -315,7 +315,7 @@ export const MENU_ITEMS = [
     category: 'Sandwiches',
     price: '',
     desc: 'Club Sandwich — Layered with sauces and fillings.',
-    img: 'assets/images/club sandwich .jpg',
+    img: 'assets/images/club%20sandwich.jpg',
     keywords: 'Club Sandwich'
   },
   {
@@ -324,7 +324,7 @@ export const MENU_ITEMS = [
     category: 'Sandwiches',
     price: '',
     desc: 'Grill Chicken Sandwich — Layered with sauces and fillings.',
-    img: 'assets/images/Grill Chicken Sandwich.jpg',
+    img: 'assets/images/Grill%20Chicken%20Sandwich.jpg',
     keywords: 'Grill Chicken Sandwich'
   },
   {
@@ -333,7 +333,7 @@ export const MENU_ITEMS = [
     category: 'Sandwiches',
     price: '',
     desc: 'Non Veg Club Sandwich — Layered with sauces and fillings.',
-    img: 'assets/images/Non Veg Club Sandwich.jpg',
+    img: 'assets/images/Non%20Veg%20Club%20Sandwich.jpg',
     keywords: 'Non Veg Club Sandwich'
   },
   {
@@ -342,7 +342,7 @@ export const MENU_ITEMS = [
     category: 'Sauces',
     price: '',
     desc: 'Signature Garlic Sauce, perfect with meals.',
-    img: 'assets/images/Garlic Sauce.jpg',
+    img: 'assets/images/Garlic%20Sauce.jpg',
     keywords: 'Garlic Sauce'
   },
   {
@@ -351,7 +351,7 @@ export const MENU_ITEMS = [
     category: 'Wings',
     price: '',
     desc: 'Spicy and crispy Bbq Wings, finger-licking good.',
-    img: 'assets/images/BBQ Wings.jpg',
+    img: 'assets/images/BBQ%20Wings.jpg',
     keywords: 'Bbq Wings'
   },
   {
@@ -360,7 +360,7 @@ export const MENU_ITEMS = [
     category: 'Platters',
     price: '',
     desc: 'Broasted Chicken platter with sides and dip.',
-    img: 'assets/images/Broasted Chicken.png',
+    img: 'assets/images/Broasted%20Chicken.png',
     keywords: 'Broasted Chicken'
   },
   {
@@ -369,7 +369,7 @@ export const MENU_ITEMS = [
     category: 'Wings',
     price: '',
     desc: 'Spicy and crispy Peri Peri Wings, finger-licking good.',
-    img: 'assets/images/Peri Peri Wings.jpg',
+    img: 'assets/images/Peri%20Peri%20Wings.jpg',
     keywords: 'Peri Peri Wings'
   },
   {
@@ -378,7 +378,7 @@ export const MENU_ITEMS = [
     category: 'Others',
     price: '',
     desc: 'Zinger Fingers special from our kitchen.',
-    img: 'assets/images/Zinger Fingers.jpg',
+    img: 'assets/images/Zinger%20Fingers.jpg',
     keywords: 'Zinger Fingers'
   },
   {
@@ -387,7 +387,7 @@ export const MENU_ITEMS = [
     category: 'Wraps',
     price: '',
     desc: 'Bbq Beef Wrap wrap stuffed with tasty fillings.',
-    img: 'assets/images/BBQ Beef Wrap.jpg',
+    img: 'assets/images/BBQ%20Beef%20Wrap.jpg',
     keywords: 'Bbq Beef Wrap'
   },
   {
@@ -396,7 +396,7 @@ export const MENU_ITEMS = [
     category: 'Wraps',
     price: '',
     desc: 'Bbq Chicken Wrap wrap stuffed with tasty fillings.',
-    img: 'assets/images/bbq chicken wrap.jpg',
+    img: 'assets/images/bbq%20chicken%20wrap.jpg',
     keywords: 'Bbq Chicken Wrap'
   },
   {
@@ -405,7 +405,7 @@ export const MENU_ITEMS = [
     category: 'Wraps',
     price: '',
     desc: 'Bbq Paneer Wrap wrap stuffed with tasty fillings.',
-    img: 'assets/images/bbq paneer wrap.jpg',
+    img: 'assets/images/bbq%20paneer%20wrap.jpg',
     keywords: 'Bbq Paneer Wrap'
   },
   {
@@ -414,7 +414,7 @@ export const MENU_ITEMS = [
     category: 'Wraps',
     price: '',
     desc: 'Chatpata Paneer Wrap wrap stuffed with tasty fillings.',
-    img: 'assets/images/Chatpata Paneer Wrap.jpg',
+    img: 'assets/images/Chatpata%20Paneer%20Wrap.jpg',
     keywords: 'Chatpata Paneer Wrap'
   },
   {
@@ -423,7 +423,7 @@ export const MENU_ITEMS = [
     category: 'Wraps',
     price: '',
     desc: 'Chicken Cheesy Wrap wrap stuffed with tasty fillings.',
-    img: 'assets/images/chicken cheesy wrap.jpg',
+    img: 'assets/images/chicken%20cheesy%20wrap.jpg',
     keywords: 'Chicken Cheesy Wrap'
   },
   {
@@ -432,7 +432,7 @@ export const MENU_ITEMS = [
     category: 'Wraps',
     price: '',
     desc: 'Grill Chicken Wrap wrap stuffed with tasty fillings.',
-    img: 'assets/images/Grill Chicken Wrap.jpg',
+    img: 'assets/images/Grill%20Chicken%20Wrap.jpg',
     keywords: 'Grill Chicken Wrap'
   },
   {
@@ -441,7 +441,7 @@ export const MENU_ITEMS = [
     category: 'Wraps',
     price: '',
     desc: 'Mexican Buff Wrap wrap stuffed with tasty fillings.',
-    img: 'assets/images/Mexican buff wrap.jpg',
+    img: 'assets/images/Mexican%20buff%20wrap.jpg',
     keywords: 'Mexican Buff Wrap'
   },
   {
@@ -450,7 +450,7 @@ export const MENU_ITEMS = [
     category: 'Wraps',
     price: '',
     desc: 'Mexican Paneer Wrap wrap stuffed with tasty fillings.',
-    img: 'assets/images/Mexican paneer wrap.jpg',
+    img: 'assets/images/Mexican%20paneer%20wrap.jpg',
     keywords: 'Mexican Paneer Wrap'
   },
   {
@@ -459,7 +459,7 @@ export const MENU_ITEMS = [
     category: 'Wraps',
     price: '',
     desc: 'Sunrise Buff Wrap wrap stuffed with tasty fillings.',
-    img: 'assets/images/sunrise buff wrap.jpg',
+    img: 'assets/images/sunrise%20buff%20wrap.jpg',
     keywords: 'Sunrise Buff Wrap'
   },
   {
@@ -468,7 +468,7 @@ export const MENU_ITEMS = [
     category: 'Wraps',
     price: '',
     desc: 'Sunrise Wrap wrap stuffed with tasty fillings.',
-    img: 'assets/images/Sunrise Wrap.jpg',
+    img: 'assets/images/Sunrise%20Wrap.jpg',
     keywords: 'Sunrise Wrap'
   },
   {
@@ -477,7 +477,7 @@ export const MENU_ITEMS = [
     category: 'Wraps',
     price: '',
     desc: 'Zinger Paneer Wrap wrap stuffed with tasty fillings.',
-    img: 'assets/images/Zinger Paneer Wrap.jpg',
+    img: 'assets/images/Zinger%20Paneer%20Wrap.jpg',
     keywords: 'Zinger Paneer Wrap'
   },
   {
@@ -486,7 +486,7 @@ export const MENU_ITEMS = [
     category: 'Wraps',
     price: '',
     desc: 'Zinger Wrap wrap stuffed with tasty fillings.',
-    img: 'assets/images/Zinger Wrap.jpg',
+    img: 'assets/images/Zinger%20Wrap.jpg',
     keywords: 'Zinger Wrap'
   }
 ];
