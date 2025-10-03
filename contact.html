@@ -63,7 +63,7 @@
 <body>
 <header class="site-header" role="banner">
   <div class="container navbar" role="navigation" aria-label="Primary">
-    <a class="brand" href="/index.html">
+    <a class="brand" href="index.html">
       <img src="assets/images/logo.png" alt="Wrap House logo" width="42" height="42" />
       <span class="title">WRAP HOUSE</span>
     </a>
@@ -80,7 +80,8 @@
 </header>
 
 <main class="section">
-  <div class="container grid" style="grid-template-columns:1.2fr 1fr">
+  <!-- Two-column on ≥768px; stacks on mobile -->
+  <div class="container grid contact-two-col">
     <section class="card-contrast">
       <h1>Contact</h1>
       <p>We’d love to hear from you. For orders, bulk, or catering — reach out.</p>
@@ -120,6 +121,7 @@
       <details class="card-contrast"><summary><strong>Payment methods?</strong></summary><p>Cash, UPI, and cards are accepted. Delivery partners support online payments.</p></details>
     </section>
 
+    <!-- Correct aside block; stacks below on mobile -->
     <aside class="card-contrast">
       <h2>Visit Us</h2>
       <p>
@@ -132,8 +134,9 @@
       <div style="aspect-ratio:16/9; border:1px solid rgba(200,164,106,.35); border-radius:12px; overflow:hidden">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d266.183054452749!2d78.49218553402719!3d17.37575185724673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb992b29c757f7%3A0xcfbcc1dcd25ce715!2sThe%20Wrap%20House!5e1!3m2!1sen!2sin!4v1759248713318!5m2!1sen!2sin"
-          width="100%" height="250" style="border:0"
-          allowfullscreen="" loading="lazy"
+          style="border:0; width:100%; height:100%; display:block"
+          allowfullscreen=""
+          loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           title="The Wrap House location map">
         </iframe>
