@@ -132,6 +132,10 @@ if (grid) {
   const searchInput = $('#menu-search');
   let currentCat = 'All';
   let query = '';
+  let hasInteracted = false;
+
+  // --- featured: pick up to 2 from Wraps, Burgers, Wings (total 6) ---
+  const FEATURED = pickFeatured(MENU_ITEMS, 6, ['Wraps', 'Burgers', 'Wings']);
 
   // Render chips
   CATEGORIES.forEach(cat => {
@@ -142,6 +146,7 @@ if (grid) {
     b.setAttribute('aria-pressed', cat === 'All' ? 'true' : 'false');
     b.addEventListener('click', () => {
       currentCat = cat;
+      hasInteracted = true;
       $$('#category-chips .chip').forEach(c => c.setAttribute('aria-pressed', 'false'));
       b.setAttribute('aria-pressed', 'true');
       render();
@@ -151,14 +156,40 @@ if (grid) {
 
   searchInput?.addEventListener('input', () => {
     query = searchInput.value.trim().toLowerCase();
+    hasInteracted = true;
     render();
   });
 
+  function pickFeatured(items, targetCount, preferredCats) {
+    const taken = new Set();
+    const out = [];
+
+    // take up to 2 from each preferred category
+    preferredCats.forEach(cat => {
+      const picks = items.filter(x => x.category === cat).slice(0, 2);
+      picks.forEach(p => { if (!taken.has(p.id) && out.length < targetCount) { taken.add(p.id); out.push(p); } });
+    });
+
+    // top up if less than targetCount
+    if (out.length < targetCount) {
+      for (const it of items) {
+        if (!taken.has(it.id)) {
+          out.push(it);
+          taken.add(it.id);
+          if (out.length === targetCount) break;
+        }
+      }
+    }
+    return out;
+  }
+
   function render() {
-    const filtered = MENU_ITEMS.filter(it => {
+    const base = (!hasInteracted && currentCat === 'All' && !query) ? FEATURED : MENU_ITEMS;
+
+    const filtered = base.filter(it => {
       const catOk = currentCat === 'All' || it.category === currentCat;
       const qOk = query
-        ? (it.name + ' ' + (it.keywords || '') + ' ' + it.desc).toLowerCase().includes(query)
+        ? (it.name + ' ' + (it.keywords || '') + ' ' + (it.desc || '')).toLowerCase().includes(query)
         : true;
       return catOk && qOk;
     });
@@ -181,19 +212,21 @@ if (grid) {
       </div>
       <div class="card-body">
         <h3 class="card-title">${it.name}</h3>
-        <p class="card-desc">${it.desc}</p>
+        <p class="card-desc">${it.desc || ''}</p>
         <div class="card-bottom">
-          <span class="price">₹${it.price}</span>
-          <button class="btn btn-primary" type="button" data-id="${it.id}">Add to Order</button>
+          <div class="order-buttons">
+            <a class="btn btn-zomato btn-block" href="https://zomato.onelink.me/xqzv/q8m1c8sh" target="_blank" rel="nofollow noopener noreferrer">Order on Zomato</a>
+            <a class="btn btn-swiggy btn-block" href="https://www.swiggy.com/city/hyderabad/the-wrap-house-malakpet-circle-no-6-kothapet-and-dilsukhnagar-rest627630" target="_blank" rel="nofollow noopener noreferrer">Order on Swiggy</a>
+          </div>
         </div>
       </div>
     `;
-    el.querySelector('button')?.addEventListener('click', () => toast(`${it.name} added ✔`));
     return el;
   }
 
   render();
 }
+
 
 // Forms — basic client-side validation demo
 function validate(form) {

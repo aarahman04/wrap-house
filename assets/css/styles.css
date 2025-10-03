@@ -227,3 +227,29 @@ input, textarea{
   .contact-two-col { grid-template-columns: 1.2fr 1fr; }
 }
 
+.btn-zomato {
+  background: #ff0039;
+  border-color: #ff0039;
+  color: #fff;
+}
+.btn-zomato:hover,
+.btn-zomato:focus {
+  background: #d10030;
+  border-color: #d10030;
+  color: #fff;
+}
+
+.btn-swiggy {
+  background: #fe5200;
+  border-color: #fe5200;
+  color: #fff;
+}
+.btn-swiggy:hover,
+.btn-swiggy:focus {
+  background: #d74300;
+  border-color: #d74300;
+  color: #fff;
+}
+
+.order-buttons .btn { margin-top: 8px; }
+.order-buttons .btn:first-child { margin-top: 0; }
