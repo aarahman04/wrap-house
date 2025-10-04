@@ -83,7 +83,7 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a class="btn btn-primary" href="#" rel="nofollow noopener">Order Now</a>
+      <a class="btn btn-primary" href="#Menu" rel="nofollow noopener">Order Now</a>
     </nav>
   </div>
 </header>
@@ -94,13 +94,19 @@
     <section class="card-contrast">
       <h1>Contact</h1>
       <p>We’d love to hear from you. For orders, bulk, or catering — reach out.</p>
-      <p><strong>Phone:</strong> <a href="tel:+91 96663 44521">+91&nbsp;96663&nbsp;44521</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+91 63016 80733">+91&nbsp;63016&nbsp;80733</a></p>
       <p></p><a class="btn btn-outline btn-block"
-   href="https://wa.me/919666344521?text=Hi%20Wrap%20House%2C%20I%27d%20like%20to%20place%20an%20order."
+   href="https://wa.me/916301680733?text=Hi%20Wrap%20House%2C%20I%27d%20like%20to%20place%20an%20order."
    target="_blank" rel="noopener noreferrer external" data-out="external">
   WhatsApp Us
 </a></p>
-      <p><strong>Email:</strong> <a href="mailto:orders@wrap.house">orders@wrap.house</a></p>
+      <a class="email-link"
+   href="mailto:wraphouse6@gmail.com"
+   data-to="wraphouse6@gmail.com"
+   data-subject="Order inquiry — Wrap House"
+   data-body="Hi Wrap House,I'd like to place an order.">
+  wraphouse6@gmail.com
+</a>
 
       <h2>Send a Message</h2>
       <form class="card-contrast" data-validate novalidate aria-describedby="formStatus" autocomplete="on">
@@ -129,8 +135,9 @@
       </form>
 
       <h2>FAQs</h2>
-      <details class="card-contrast"><summary><strong>Do you offer catering?</strong></summary><p>Yes! Message us on WhatsApp for packages and bulk pricing.</p></details>
+      
       <details class="card-contrast"><summary><strong>Halal?</strong></summary><p>Yes, we use halal ingredients and maintain hygienic prep.</p></details>
+      <br>
       <details class="card-contrast"><summary><strong>Payment methods?</strong></summary><p>Cash, UPI, and cards are accepted. Delivery partners support online payments.</p></details>
     </section>
 
@@ -177,18 +184,109 @@
     </div>
     <div>
       <strong>Follow</strong><br>
-      <a href="#" rel="me">Instagram</a><br>
+      <a href="https://www.instagram.com/thewrap.house?igsh=MXgwNHZhN2M0ZnRkOQ%3D%3D&utm_source=qr" rel="me">Instagram</a><br>
       <a href="#" rel="me">Facebook</a>
     </div>
     <div>
       <strong>Contact</strong><br>
-      <a href="tel:+919000000000">+91 90000 00000</a><br>
-      <a href="mailto:orders@wrap.house">orders@wrap.house</a>
+      <a href="tel:+916301680733">+91 63016 80733</a><br>
+      <a class="email-link"
+   href="mailto:wraphouse6@gmail.com"
+   data-to="wraphouse6@gmail.com"
+   data-subject="Order inquiry — Wrap House"
+   data-body="Hi Wrap House,%0AI'd like to place an order.">
+  wraphouse6@gmail.com
+</a>
+
     </div>
   </div>
-  <div class="container footer-small" style="margin-top:1rem;">© <span id="year"></span> Wrap House. Designed by Innovative Model Building..</div>
+  <div class="container footer-small" style="margin-top:1rem;">© <span id="year"></span> Wrap House. Designed by Innovative Model Building.</div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </footer>
+<script>
+(() => {
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  function openEmail({ to, subject = '', body = '', cc = '', bcc = '' }) {
+    const qs = (obj) => Object.entries(obj)
+      .filter(([_, v]) => v)
+      .map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join('&');
+
+    const gmailWeb = 'https://mail.google.com/mail/?view=cm&fs=1&' + qs({ to, su: subject, body, cc, bcc });
+    const gmailApp = 'googlegmail://co?' + qs({ to, subject, body, cc, bcc });
+    const mailto   = `mailto:${encodeURIComponent(to)}?` + qs({ subject, body, cc, bcc });
+
+    if (isMobile) {
+      // Try Gmail app; fall back to default mail app
+      const t = setTimeout(() => { location.href = mailto; }, 500);
+      location.href = gmailApp;
+      setTimeout(() => clearTimeout(t), 800);
+    } else {
+      // Desktop → Gmail Web
+      window.open(gmailWeb, '_blank', 'noopener');
+    }
+  }
+
+  // 1) Smart email links
+  document.querySelectorAll('a.email-link').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const to      = a.dataset.to || a.href.replace(/^mailto:/, '').split('?')[0];
+      const subject = a.dataset.subject || '';
+      const body    = a.dataset.body || '';
+      const cc      = a.dataset.cc || '';
+      const bcc     = a.dataset.bcc || '';
+      openEmail({ to, subject, body, cc, bcc });
+    }, true); // capture so other handlers can't block it
+  });
+
+  // 2) Contact forms → open email compose
+  document.querySelectorAll('form[data-validate]').forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const status = form.querySelector('.form-status');
+
+      // Use site's validate(form) if present, else minimal required check
+      let ok = true;
+      if (typeof window.validate === 'function') {
+        ok = window.validate(form);
+      } else {
+        ok = Array.from(form.querySelectorAll('[required]'))
+          .every(el => String(el.value || '').trim().length > 0);
+        if (!ok && status) {
+          status.textContent = 'Please complete required fields.';
+          status.style.color = '#ffb3b3';
+        }
+      }
+      if (!ok) return;
+
+      const name  = (form.querySelector('[name="name"]')    ?.value || '').trim();
+      const email = (form.querySelector('[name="email"]')   ?.value || '').trim();
+      const phone = (form.querySelector('[name="phone"]')   ?.value || '').trim();
+      const msg   = (form.querySelector('[name="message"]') ?.value || '').trim();
+
+      const to = form.dataset.to || 'wraphouse6@gmail.com';
+      const subject = `New inquiry from ${name || 'Website Visitor'} — Wrap House`;
+      const body = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        phone ? `Phone: ${phone}` : '',
+        '',
+        'Message:',
+        msg
+      ].filter(Boolean).join('\n');
+
+      openEmail({ to, subject, body });
+      if (status) {
+        status.textContent = 'Opening your email app…';
+        status.style.color = '#9be69b';
+      }
+      form.reset();
+    });
+  });
+})();
+</script>
+
 
 <script type="module" src="assets/js/app.js" defer></script>
 </body>

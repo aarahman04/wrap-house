@@ -102,12 +102,9 @@
   <section class="hero" aria-label="Featured">
     <img src="assets/images/Wrap House Logo.jpg" alt="" loading="eager" />
     <div class="hero-content container">
-      <span class="badge">Always Fresh • Since 2020</span>
-      <h1>Crispy • Juicy • Zingerlicious</h1>
-      <p>Wraps, burgers, sandwiches and broast—made bold, served fast.</p>
       <div class="flex center">
-        <a class="btn btn-primary" href="#" rel="nofollow noopener">Order Now</a>
-        <a class="btn btn-outline" href="#menu">View Menu</a>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <a class="btn btn-primary" href="./about.html" rel="nofollow noopener">About Us</a>
       </div>
     </div>
   </section>
@@ -182,7 +179,7 @@
     </a>
 
    <a class="btn btn-outline btn-block"
-   href="https://wa.me/919666344521?text=Hi%20Wrap%20House%2C%20I%27d%20like%20to%20place%20an%20order."
+   href="https://wa.me/9163016 80733?text=Hi%20Wrap%20House%2C%20I%27d%20like%20to%20place%20an%20order."
    target="_blank" rel="noopener noreferrer external" data-out="external">
   WhatsApp Us
 </a>
@@ -235,10 +232,17 @@
 
     <aside class="card-contrast">
       <h3>Find Us</h3>
-      <p>Street name 123, Hyderabad</p>
+      <p>16-7-386/1, Beside Imad Collection, Azampura, Malakpet,
+Hyderabad, Telangana 500024</p>
       <p>
-        <a href="tel:+919000000000">+91 96663 44521</a><br>
-        <a href="mailto:orders@wrap.house">orders@wrap.house</a>
+        <a href="tel:+919000000000">+91 63016 80733</a><br>
+        <a class="email-link"
+   href="mailto:wraphouse6@gmail.com"
+   data-to="wraphouse6@gmail.com"
+   data-subject="Order inquiry — Wrap House"
+   data-body="Hi Wrap House,%0AI'd like to place an order.">
+  wraphouse6@gmail.com
+</a>
       </p>
       <div class="badge">Hours: 12:00 – 23:30</div>
 
@@ -274,18 +278,109 @@
     </div>
     <div>
       <strong>Follow</strong><br>
-      <a href="#" rel="me">Instagram</a><br>
+      <a href="https://www.instagram.com/thewrap.house?igsh=MXgwNHZhN2M0ZnRkOQ%3D%3D&utm_source=qr" rel="me">Instagram</a><br>
       <a href="#" rel="me">Facebook</a>
     </div>
     <div>
       <strong>Contact</strong><br>
-      <a href="tel:+919000000000">+91 90000 00000</a><br>
-      <a href="mailto:orders@wrap.house">orders@wrap.house</a>
+      <a href="tel:+916301680733">+91 63016 80733</a><br>
+      <a class="email-link"
+   href="mailto:wraphouse6@gmail.com"
+   data-to="wraphouse6@gmail.com"
+   data-subject="Order inquiry — Wrap House"
+   data-body="Hi Wrap House,I'd like to place an order.">
+  wraphouse6@gmail.com
+</a>
+
     </div>
   </div>
   <div class="container footer-small" style="margin-top:1rem;">© <span id="year"></span> Wrap House. Designed by Innovative Model Building.</div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </footer>
+
+<script>
+(() => {
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  function openEmail({ to, subject = '', body = '', cc = '', bcc = '' }) {
+    const qs = (obj) => Object.entries(obj)
+      .filter(([_, v]) => v)
+      .map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join('&');
+
+    const gmailWeb = 'https://mail.google.com/mail/?view=cm&fs=1&' + qs({ to, su: subject, body, cc, bcc });
+    const gmailApp = 'googlegmail://co?' + qs({ to, subject, body, cc, bcc });
+    const mailto   = `mailto:${encodeURIComponent(to)}?` + qs({ subject, body, cc, bcc });
+
+    if (isMobile) {
+      // Try Gmail app; fall back to default mail app
+      const t = setTimeout(() => { location.href = mailto; }, 500);
+      location.href = gmailApp;
+      setTimeout(() => clearTimeout(t), 800);
+    } else {
+      // Desktop → Gmail Web
+      window.open(gmailWeb, '_blank', 'noopener');
+    }
+  }
+
+  // 1) Smart email links
+  document.querySelectorAll('a.email-link').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const to      = a.dataset.to || a.href.replace(/^mailto:/, '').split('?')[0];
+      const subject = a.dataset.subject || '';
+      const body    = a.dataset.body || '';
+      const cc      = a.dataset.cc || '';
+      const bcc     = a.dataset.bcc || '';
+      openEmail({ to, subject, body, cc, bcc });
+    }, true); // capture so other handlers can't block it
+  });
+
+  // 2) Contact forms → open email compose
+  document.querySelectorAll('form[data-validate]').forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const status = form.querySelector('.form-status');
+
+      // Use site's validate(form) if present, else minimal required check
+      let ok = true;
+      if (typeof window.validate === 'function') {
+        ok = window.validate(form);
+      } else {
+        ok = Array.from(form.querySelectorAll('[required]'))
+          .every(el => String(el.value || '').trim().length > 0);
+        if (!ok && status) {
+          status.textContent = 'Please complete required fields.';
+          status.style.color = '#ffb3b3';
+        }
+      }
+      if (!ok) return;
+
+      const name  = (form.querySelector('[name="name"]')    ?.value || '').trim();
+      const email = (form.querySelector('[name="email"]')   ?.value || '').trim();
+      const phone = (form.querySelector('[name="phone"]')   ?.value || '').trim();
+      const msg   = (form.querySelector('[name="message"]') ?.value || '').trim();
+
+      const to = form.dataset.to || 'wraphouse6@gmail.com';
+      const subject = `New inquiry from ${name || 'Website Visitor'} — Wrap House`;
+      const body = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        phone ? `Phone: ${phone}` : '',
+        '',
+        'Message:',
+        msg
+      ].filter(Boolean).join('\n');
+
+      openEmail({ to, subject, body });
+      if (status) {
+        status.textContent = 'Opening your email app…';
+        status.style.color = '#9be69b';
+      }
+      form.reset();
+    });
+  });
+})();
+</script>
 
 
 <script type="module" src="assets/js/app.js" defer></script>
