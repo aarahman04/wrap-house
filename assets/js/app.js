@@ -283,7 +283,7 @@ if (grid) {
                href="https://zomato.onelink.me/xqzv/q8m1c8sh"
                target="_blank" rel="nofollow noopener noreferrer">Order on Zomato</a>
             <a class="btn btn-swiggy btn-block btn-compact"
-               href="https://www.swiggy.com/city/hyderabad/the-wrap-house-malakpet-circle-no-6-kothapet-and-dilsukhnagar-rest627630"
+               href="https://www.swiggy.com/menu/627630?source=sharing"
                target="_blank" rel="nofollow noopener noreferrer">Order on Swiggy</a>
           </div>
         </div>
