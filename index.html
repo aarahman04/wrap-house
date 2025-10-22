@@ -1,67 +1,79 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0b0b0b">
-<meta name="msapplication-TileColor" content="#0b0b0b">
-<meta name="msapplication-config" content="browserconfig.xml">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <base href="https://aarahman04.github.io/wrap-house/">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Wrap House — Wraps, Burgers, Sandwiches, Platters</title>
-    <meta name="description" content="Bold, crispy, juicy. Order your favorites from Wrap House." />
+  <title>Wrap House — Wraps, Burgers, Sandwiches, Platters</title>
+  <meta name="description" content="Bold, crispy, juicy. Order your favorites from Wrap House." />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Wrap House — Wraps, Burgers, Sandwiches, Platters" />
-    <meta property="og:description" content="Bold, crispy, juicy. Order your favorites from Wrap House." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/images/og-cover.jpg" />
-    <meta property="og:url" content="" />
+  <!-- Canonical for SEO -->
+  <link rel="canonical" href="https://thewraphouse.co.in/" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Wrap House — Wraps, Burgers, Sandwiches, Platters" />
-    <meta name="twitter:description" content="Bold, crispy, juicy. Order your favorites from Wrap House." />
-    <meta name="twitter:image" content="assets/images/og-cover.jpg" />
+  <!-- App / theme -->
+  <meta name="theme-color" content="#0b0b0b">
+  <meta name="msapplication-TileColor" content="#0b0b0b">
+  <meta name="msapplication-config" content="/browserconfig.xml">
 
-    <!-- Favicons (replace with real generated files) -->
-    <link rel="icon" href="assets/images/favicon.png" />
+  <!-- Favicons / PWA (root-relative paths) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="manifest" href="/manifest.json">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Wrap House — Wraps, Burgers, Sandwiches, Platters" />
+  <meta property="og:description" content="Bold, crispy, juicy. Order your favorites from Wrap House." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://thewraphouse.co.in/assets/images/og-cover.jpg" />
+  <meta property="og:url" content="https://thewraphouse.co.in/" />
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Restaurant",
-      "name": "Wrap House",
-      "image": "assets/images/og-cover.jpg",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Street name 123",
-        "addressLocality": "Hyderabad",
-        "addressRegion": "TS",
-        "postalCode": "500000",
-        "addressCountry": "IN"
-      },
-      "telephone": "+91-90000-00000",
-      "servesCuisine": ["Wraps","Burgers","Sandwiches","Platters"],
-      "priceRange": "₹₹",
-      "url": "",
-      "sameAs": ["https://instagram.com/", "https://facebook.com/"],
-      "openingHoursSpecification": [{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"12:00","closes":"23:30"}],
-      "dateModified":"2025-09-30T15:47:24Z"
-    }
-    </script>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Wrap House — Wraps, Burgers, Sandwiches, Platters" />
+  <meta name="twitter:description" content="Bold, crispy, juicy. Order your favorites from Wrap House." />
+  <meta name="twitter:image" content="https://thewraphouse.co.in/assets/images/og-cover.jpg" />
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- CSS (root-relative; add a cache-buster once if needed) -->
+  <link rel="stylesheet" href="/assets/css/styles.css?v=1" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Wrap House",
+    "image": "https://thewraphouse.co.in/assets/images/og-cover.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Street name 123",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "TS",
+      "postalCode": "500000",
+      "addressCountry": "IN"
+    },
+    "telephone": "+91-90000-00000",
+    "servesCuisine": ["Wraps","Burgers","Sandwiches","Platters"],
+    "priceRange": "₹₹",
+    "url": "https://thewraphouse.co.in/",
+    "sameAs": ["https://instagram.com/", "https://facebook.com/"],
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "12:00",
+      "closes": "23:30"
+    }],
+    "dateModified": "2025-09-30T15:47:24Z"
+  }
+  </script>
 </head>
+
 <body>
 <header class="site-header" role="banner">
   <div class="container navbar" role="navigation" aria-label="Primary">
